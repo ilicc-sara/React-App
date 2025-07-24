@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "./App.css";
 import Form from "./Form";
+import Items from "./Items";
 
 function App() {
-  const [item, setItems] = useState([]);
+  const [items, setItems] = useState([]);
 
   const addItem = (itemName) => {
     const newItem = {
@@ -14,9 +15,12 @@ function App() {
     setItems((prev) => [...prev, newItem]);
   };
 
+  const removeItem = (itemId) => {};
+
   return (
     <>
-      <Form />
+      <Form addItem={addItem} />
+      <Items items={items} removeItem={removeItem} />
     </>
   );
 }
